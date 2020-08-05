@@ -14,6 +14,14 @@ class Formpage extends Component {
     // this returns the contents of the Form
     submitButton = () => {
         console.log(this.state);
+        for (const value of Object.values(this.state)){
+            if(value === " ") {
+                // this is a naive approach to validating the data
+                // but can expand this to do more
+                alert("you have missing fields");
+                break;
+            }
+        }
         return this.state;
     };
     
