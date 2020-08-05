@@ -4,17 +4,16 @@ class Forms extends Component {
     constructor(props){
         super(props);
         this.state = {
-            hide : true,
+            hide : true, // dictates whether or not the component is rendered
         };
     }
 
     componentDidMount(){
-        this.props.handler( this.props.config.name, " ");
+        this.props.handler( this.props.config.name, " "); // intializes the parent state with the form names
     }
 
     render(){
         if(this.props.containsConditional){
-            this.state.hide = false;
             const condFunc = new Function("value1", this.props.config.conditional.show_if); // creates the conditional function from the config
             // checks to see if form value was filled by user (for test3: date of birth)
             const val = this.props.getParentStateValue(this.props.config.conditional.name);
@@ -25,7 +24,7 @@ class Forms extends Component {
         }
         return(
             <div>
-                {   !! this.state.hide /* if hide is false, renders the form : if true, does not render*/
+                {   !! this.state.hide /* if hide is false, renders the form : if true, renders empty div*/
                     ?   <div>
                             <label>{this.props.config.human_label}</label>
                             <input

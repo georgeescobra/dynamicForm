@@ -13,14 +13,19 @@ class Formpage extends Component {
 
     // this returns the contents of the Form
     submitButton = () => {
-        console.log(this.state);
-        for (const value of Object.values(this.state)){
-            if(value === " ") {
-                // this is a naive approach to validating the data
-                // but can expand this to do more
+        for (const [key, values] of Object.entries(this.state)){
+            console.log(key, " : ", values)
+            // this is a naive approach to validating the data
+            // but can expand this to do more
+            /* if(value === " ") {
+                had to take out because "parental_consent" is considered empty " "
+                if time to implement:
+                    - have to run the function conditional on the value and check if dob not empty
+                    - if function() is true then parental_consent cant be " "
+                    - if i can somehow check the component.hide value then i can bypass running the function again       
                 alert("you have missing fields");
                 break;
-            }
+            }*/
         }
         return this.state;
     };
@@ -41,6 +46,7 @@ class Formpage extends Component {
         }
     };
 
+    // getter for child component
     getParentStateValue = (name) => {
         if (name in this.state){
             return this.state[name];
@@ -50,8 +56,12 @@ class Formpage extends Component {
 
     render(){
         return(
-            <div>
-                {/*make sure the data is wrapped in []*/}
+            <div    >
+                {/* make sure the json data is wrapped in []
+                    make sure the function is a string in json
+                        - also make sure that the function contains no compile errors
+                        - folow format in ../jsonTests/test.json
+                */}
                 { ConfigData.map((configDetail) => {
                     return <Forms 
                             config={configDetail} 
