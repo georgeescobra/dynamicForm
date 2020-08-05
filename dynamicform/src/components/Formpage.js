@@ -56,7 +56,17 @@ class Formpage extends Component {
 
     render(){
         return(
-            <div    >
+            <div style={{
+                    backgroundColor:"#2b6b87",
+                    flexDirection: "row",
+                    justifyContent: "center",
+                    textAlign: "center",
+                    margin: "10px",
+                    borderRadius : "10px",
+                    padding: "10px",
+                    minWidth : "80%"
+                }}>
+
                 {/* make sure the json data is wrapped in []
                     make sure the function is a string in json
                         - also make sure that the function contains no compile errors
@@ -71,7 +81,13 @@ class Formpage extends Component {
                             containsConditional={("conditional" in configDetail)? true : false}
                             />
                 })}
-                <button type="button" onClick={() => this.submitButton()}>SUBMIT</button>
+                <button style={{
+                        justifyContent: "center",
+                        alignItems: "center",
+                        textAlign: "center"
+                }}
+                    type="button" 
+                    onClick={() => this.submitButton()}>SUBMIT</button>
             </div>
         );
     

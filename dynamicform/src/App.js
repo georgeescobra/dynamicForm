@@ -5,7 +5,14 @@ import Formpage from "./components/Formpage";
 class App extends Component {
   render(){
     return (
-      <div>
+      <div style={{
+        backgroundColor: "grey",
+        height : "inherit",
+        display: "flex",
+        flexDirection : "row",
+        flexWrap : "nowrap",
+        justifyContent : "center"
+      }}>
         <Formpage /> 
       </div>
     );

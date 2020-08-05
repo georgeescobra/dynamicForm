@@ -25,9 +25,24 @@ class Forms extends Component {
         return(
             <div>
                 {   !! this.state.hide /* if hide is false, renders the form : if true, renders empty div*/
-                    ?   <div>
-                            <label>{this.props.config.human_label}</label>
-                            <input
+                    ?   <div style={{
+                            display: "flex",
+                            flexWrap: "wrap",
+                            justifyContent: "center",
+                            paddingBottom: "10px",
+                        }}>
+                            <label style={{
+                                    flex: 2,
+                                    textAlign: "center",
+                                    fontFamily: "roboto",
+                                    fontWeight: "bold",
+                                    fontSize: "larger",
+                            }}>{this.props.config.human_label}</label>
+                            <input style={{
+                                flex: 2,
+                                textAlign: "center",
+                                width: "75%",      
+                            }}
                                 type={this.props.config.type}
                                 name={this.props.config.name}
                                 onChange={this.props.handleChange}
