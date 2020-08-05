@@ -8,7 +8,14 @@ class Formpage extends Component {
         this.state = {};
         this.handler = this.handler.bind(this);
         this.handleChange = this.handleChange.bind(this);
+
     }
+
+    // this returns the contents of the Form
+    submitButton = () => {
+        console.log(this.state);
+        return this.state;
+    };
     
     // sets state from child component Forms
     handler = (name, val) => {
@@ -31,6 +38,7 @@ class Formpage extends Component {
                             handleChange={this.handleChange}
                             />
                 })}
+                <button type="button" onClick={() => this.submitButton()}>SUBMIT</button>
             </div>
         );
     
