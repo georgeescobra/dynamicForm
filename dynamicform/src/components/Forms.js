@@ -3,7 +3,12 @@ import React, { Component } from "react";
 class Forms extends Component {
     constructor(props){
         super(props);
-        this.state = {};
+        this.state = {
+        };
+    }
+
+    componentDidMount(){
+        this.props.handler( this.props.config.name, " ");
     }
 
     render(){
