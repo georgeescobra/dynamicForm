@@ -24,7 +24,13 @@ class Formpage extends Component {
 
     // handles onChange() changes
     handleChange = (event) =>{
-        this.setState({[event.target.name] : event.target.value});
+        const name = event.target.name;
+        // this is so checkboxes can be toggled on and off
+        if(event.target.type === "checkbox" && this.state[name] !== " "){ 
+            this.setState({[name] : " "})
+        }else{
+            this.setState({[name] : event.target.value});
+        }
     };
 
     getParentStateValue = (name) => {
@@ -39,13 +45,12 @@ class Formpage extends Component {
             <div>
                 {/*make sure the data is wrapped in []*/}
                 { ConfigData.map((configDetail) => {
-                    let containsConditional = ("conditional" in configDetail)? true : false;
                     return <Forms 
                             config={configDetail} 
                             handler={this.handler}
                             handleChange={this.handleChange}
                             getParentStateValue={this.getParentStateValue}
-                            containsConditional={containsConditional}
+                            containsConditional={("conditional" in configDetail)? true : false}
                             />
                 })}
                 <button type="button" onClick={() => this.submitButton()}>SUBMIT</button>
