@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Forms from "../components/Forms"
+import ConfigData from "../jsonTests/test1.json"
 
 class Formpage extends Component {
     constructor(props){
@@ -10,7 +11,10 @@ class Formpage extends Component {
     render(){
         return(
             <div>
-                <Forms />
+                {/*make sure the data is wrapped in []*/}
+                { ConfigData.map((configDetail) => {
+                    return <Forms config={configDetail} />
+                })}
             </div>
         );
     

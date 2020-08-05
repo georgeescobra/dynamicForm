@@ -9,7 +9,11 @@ class Forms extends Component {
     render(){
         return(
             <div>
-                Hello World!
+                <label>{this.props.config.human_label}</label>
+                <input
+                    type={this.props.config.type}
+                    name={this.props.config.name}
+                />
             </div>
         );
     

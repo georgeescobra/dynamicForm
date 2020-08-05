@@ -1,6 +1,6 @@
-{
+[{
     "name": "email",
     "type": "email",
     "human_label": "Email Address",
     "tag": "input"
-}
+}]
