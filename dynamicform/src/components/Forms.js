@@ -13,6 +13,7 @@ class Forms extends Component {
                 <input
                     type={this.props.config.type}
                     name={this.props.config.name}
+                    onChange={this.props.handleChange}
                 />
             </div>
         );
